@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     
+      <title></title>
+      
+     
+      <script src="jquery-1.9.1.min.js"></script>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="smsplugin.js"></script>
+        <script type="text/javascript" src="js/jquery.Storage.js"></script>     
+       <link href="styles/style.css" rel="stylesheet" />
+      
+      
+      <script type="text/javascript">
+         $(document).ready(function() {
+           var cmobile = $.Storage.get("ContactMobile");
+         
+         $("#txtMessageTo").val(cmobile);
+         
+         
+			 //leave empty for sending sms using default intent
+             $("#btnSendMessage").click(function(){
+             
+             	var number = cmobile;
+             	var message = $("#txtMessage").val();
+	            SmsPlugin.prototype.send(number, message, '',
+				    function () { 
+				       alert('Message sent successfully');  
+				    },
+				    function (e) {
+				        alert('Message Failed:' + e);
+				    }
+				); 
+				window.location.href ='Contacts.html';              
+             }); 
+             
+         });
+                   
+      </script>
+   </head>
+   <body>
+    <div class="container">
+	<div class="header">
+    	<div class="header-bg"></div>
+        <!--<div class="header-profile">
+        	<div class="left-profile">
+            	<div class="profile-pic"></div>
+            </div>
+            <div class="right-profile">
+            	<div id="mainname" class="profile-name"></div>
+            </div>
+        </div>-->
+    </div>
+    <div style="clear:both"></div>
+<div class="page-heading-bg">
+	<div class="page-heading">Send Message</div>
+</div>
+<div class="content-area">
+	
+    
+    <div class="input-bg">
+    <input type="text" value="Message To" style="border-right:1px solid #FFF; width:20%;" />
+    <input type="text" id="txtMessageTo" />
+    <!--<a href=""><img src="images/edit-icon.png" style="float:right; margin:10px;" /></a>-->
+    </div>
+    
+    
+    
+    <div class="input-bg" style="height:auto">
+    <input type="text" value="Message" style="border-right:1px solid #FFF; width:20%; height: 200px;" />
+    <input type="text" id="txtMessage" 
+    style="width: 65%; height: 200px" />
+    <!--<a href=""><img src="images/edit-icon.png" style="float:right; margin:10px;" /></a>-->
+    </div>
+    
+    <div class="input-bg" style="margin-bottom:50px !important">
+      <input type="button" id="btnSendMessage" value="Send" />
+    </div>
+    
+</div>
+<div class="footer-area">
+<ul class="footer">
+<div style="margin-left: -3.5%;">
+	<li id="profile">
+    <a href="Profile.html" ><div class="profile-icon"></div></a>
+    </li>
+    <li id="email">
+    <a href="Email.html"  >
+    <div class="email-icon"></div></a>
+    </li>
+    <li id="chat">
+    <a href="Contacts.html" class="active">
+    <div class="chat-icon"></div></a>
+    </li>
+    <li id="share" style="border:none">
+    <a href="Social.hmtl"><div class="share-icon"></div></a>
+    </li>
+    </div>
+</ul>
+</div>
+</div>
+</body>
+
+</html>
