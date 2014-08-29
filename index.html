@@ -22,8 +22,8 @@
 				}
             $("#btnEnter").click(function () {
                 Getuserdata();
-                //onDeviceReady();
-                TestInsert()
+                onDeviceReady();
+                //TestInsert()
                 
             });
         
@@ -37,27 +37,27 @@
             }
         });
        
-        function TestInsert() {
-            alert("testinsert");
-            var name = 'Gul';
-            var mobileNumber = '1234421';
-            var userId = 2;
-            $.ajax(
-            {
-                type: "POST",
-                url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
-                //url: "Vcard.asmx/InsertUserContact",
-                data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + userId + "'}",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response, status) {
-                    alert("testinsertsucces");
-                },
-                failure: function (msg) {
-                    alert(msg);
-                }
-            });
-        }
+        //function TestInsert() {
+        //    alert("testinsert");
+        //    var name = 'Gul';
+        //    var mobileNumber = '1234421';
+        //    var userId = '2';
+        //    $.ajax(
+        //    {
+        //        type: "POST",
+        //        url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
+        //        //url: "Vcard.asmx/InsertUserContact",
+        //        data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + userId + "'}",
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (response, status) {
+        //            alert("testinsertsucces");
+        //        },
+        //        failure: function (msg) {
+        //            alert(msg);
+        //        }
+        //    });
+        //}
     </script>
 
     <!--User Profile Data-->
@@ -135,7 +135,7 @@
         }
     </script>
     <!--User Profile Data End-->
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
         //document.addEventListener("deviceready", onDeviceReady, false);
 
         // Cordova is ready
@@ -177,7 +177,7 @@
                     //alert(name);
                    
                    var input = $.Storage.get("Mobile");
-                   
+                   alert(input);
                    
                    $.ajax(
                    {
@@ -204,11 +204,11 @@
         // onError: Failed to get the contacts
         //
         alert("contact Added");
-        window.location.href = 'Profile.html';
+        //window.location.href = 'Profile.html';
         function onError(contactError) {
             alert('onError!');
         }
-    </script>-->
+    </script>
 </head>
 <body>
     <div class="container">
