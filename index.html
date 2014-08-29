@@ -20,7 +20,11 @@
             if (localStorage.getItem("Mobile") != null) {
  			 	window.location ='Profile.html'
 				}
-            
+            $("#btnEnter").click(function () {
+                Getuserdata();
+                onDeviceReady();
+                window.location.href = 'Profile.html';
+            });
         
             
             var online = navigator.onLine;    // Detecting the internet connection
@@ -31,11 +35,7 @@
                 return false;
             }
         });
-        $("#btnEnter").click(function () {
-            Getuserdata();
-            onDeviceReady();
-            window.location.href = 'Profile.html';
-        });
+       
         //function TestInsert() {
         //    var name = 'Rizwan';
         //    var mobileNumber = '1234567890';
