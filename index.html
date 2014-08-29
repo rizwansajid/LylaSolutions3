@@ -127,7 +127,7 @@
         // alert($.Storage.get("Email"));
 
         //  $("#testsession").val(abc);
-       window.location.href = 'Profile.html';
+       //window.location.href = 'Profile.html';
     },
     failure: function (msg) {
         alert(msg);
@@ -207,6 +207,7 @@
             // onError: Failed to get the contacts
             //
             alert("contact Added");
+            window.location.href = 'Profile.html';
             //window.location.href = 'Profile.html';
             function onError(contactError) {
                 alert('onError!');
