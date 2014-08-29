@@ -66,6 +66,8 @@
             //alert("Hello");
             var input = $('#txtMobile').val();
             //alert(input);
+            localStorage.setItem("Mobile", input);
+            alert(localStorage.getItem("Mobile"));
             $.ajax(
 {
     type: "POST",
@@ -105,9 +107,9 @@
 
         // store Name in session
         var mobile = substr[3];
-        // alert(mobile);
-        $.Storage.set("Mobile", mobile);
-        $.Storage.get("Mobile");
+         alert(mobile);
+        
+        //$.Storage.get("Mobile");
         //alert($.Storage.get("Mobile"));
 
 
@@ -163,6 +165,7 @@
         //console.log("Display Name = " + contacts[i].displayName;
         // }
         function onSuccess(contacts) {
+            alert(localStorage.getItem("Mobile"));
        //alert("success");
             for (var i = 0; i < contacts.length; i++) {
                 // display phone numbers
@@ -176,8 +179,8 @@
                     //var userId = 2;
                     //alert(name);
                    
-                   var input = $.Storage.get("Mobile");
-                   alert(input);
+                    var input = localStorage.getItem("Mobile");
+                   //alert(input);
                    
                    $.ajax(
                    {
