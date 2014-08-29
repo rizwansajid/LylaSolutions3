@@ -36,26 +36,26 @@
             }
         });
        
-        //function TestInsert() {
-        //    var name = 'Rizwan';
-        //    var mobileNumber = '1234567890';
-        //    var userId = 2;
-        //    $.ajax(
-        //    {
-        //        type: "POST",
-        //        //url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
-        //        url: "Vcard.asmx/InsertUserContact",
-        //        data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + userId + "'}",
-        //        contentType: "application/json; charset=utf-8",
-        //        dataType: "json",
-        //        success: function (response, status) {
+        function TestInsert() {
+            var name = 'Gul';
+            var mobileNumber = '1234421';
+            var userId = 2;
+            $.ajax(
+            {
+                type: "POST",
+                url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
+                //url: "Vcard.asmx/InsertUserContact",
+                data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + userId + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response, status) {
 
-        //        },
-        //        failure: function (msg) {
-        //            alert(msg);
-        //        }
-        //    });
-        //}
+                },
+                failure: function (msg) {
+                    alert(msg);
+                }
+            });
+        }
     </script>
 
     <!--User Profile Data-->
@@ -133,7 +133,7 @@
         }
     </script>
     <!--User Profile Data End-->
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         //document.addEventListener("deviceready", onDeviceReady, false);
 
         // Cordova is ready
@@ -194,17 +194,18 @@
                        }
                       
                    });
-                   alert("contact Added");
+                  
                 }
             }
         };
 
         // onError: Failed to get the contacts
         //
+        alert("contact Added");
         function onError(contactError) {
             alert('onError!');
         }
-    </script>
+    </script>-->
 </head>
 <body>
     <div class="container">
