@@ -144,7 +144,7 @@
         //
         function importContacts() {
 
-        
+
             // specify contact search criteria
             var options = new ContactFindOptions();
             options.filter = "";          // empty search string returns all contacts
@@ -154,62 +154,63 @@
             // find contacts
             navigator.contacts.find(filter, onSuccess, onError, options);
             //alert("find contact");
-        }
 
-        // onSuccess: Get a snapshot of the current contacts
-        //
-        // function onSuccess(contacts) {
-        // alert("success");
-        //   for (var i=0; i<contacts.length; i++) {
-        //    alert(contacts[i].displayName);
-        //console.log("Display Name = " + contacts[i].displayName;
-        // }
-        function onSuccess(contacts) {
-            alert(localStorage.getItem("Mobile"));
-       //alert("success");
-            for (var i = 0; i < contacts.length; i++) {
-                // display phone numbers
-                for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-                    //alert(contacts[i].displayName + "\n" +
-                    //    "Type: " + contacts[i].phoneNumbers[j].type + "\n" +
-                    //        "Value: " + contacts[i].phoneNumbers[j].value + "\n" +
-                    //        "Preferred: " + contacts[i].phoneNumbers[j].pref);
-                    var name = contacts[i].displayName;
-                    var mobileNumber = contacts[i].phoneNumbers[j].value;
-                    //var userId = 2;
-                    //alert(name);
-                   
-                    var input = localStorage.getItem("Mobile");
-                   //alert(input);
-                   
-                   $.ajax(
-                   {
-                       type: "POST",
-                       url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
-                       //url: "Vcard.asmx/InsertUserContact",
-                       data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + input + "'}",
-                       contentType: "application/json; charset=utf-8",
-                       dataType: "json",
-                       success: function (response, status) {
-                           //alert("added");
-                       },
 
-                       failure: function (msg) {
-                           alert(msg);
-                       }
-                      
-                   });
-                  
+            // onSuccess: Get a snapshot of the current contacts
+            //
+            // function onSuccess(contacts) {
+            // alert("success");
+            //   for (var i=0; i<contacts.length; i++) {
+            //    alert(contacts[i].displayName);
+            //console.log("Display Name = " + contacts[i].displayName;
+            // }
+            function onSuccess(contacts) {
+                //alert(localStorage.getItem("Mobile"));
+                //alert("success");
+                for (var i = 0; i < contacts.length; i++) {
+                    // display phone numbers
+                    for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+                        //alert(contacts[i].displayName + "\n" +
+                        //    "Type: " + contacts[i].phoneNumbers[j].type + "\n" +
+                        //        "Value: " + contacts[i].phoneNumbers[j].value + "\n" +
+                        //        "Preferred: " + contacts[i].phoneNumbers[j].pref);
+                        var name = contacts[i].displayName;
+                        var mobileNumber = contacts[i].phoneNumbers[j].value;
+                        //var userId = 2;
+                        //alert(name);
+
+                        var input = localStorage.getItem("Mobile");
+                        //alert(input);
+
+                        $.ajax(
+                        {
+                            type: "POST",
+                            url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
+                            //url: "Vcard.asmx/InsertUserContact",
+                            data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + input + "'}",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (response, status) {
+                                //alert("added");
+                            },
+
+                            failure: function (msg) {
+                                alert(msg);
+                            }
+
+                        });
+
+                    }
                 }
-            }
-        };
+            };
 
-        // onError: Failed to get the contacts
-        //
-        alert("contact Added");
-        //window.location.href = 'Profile.html';
-        function onError(contactError) {
-            alert('onError!');
+            // onError: Failed to get the contacts
+            //
+            alert("contact Added");
+            //window.location.href = 'Profile.html';
+            function onError(contactError) {
+                alert('onError!');
+            }
         }
     </script>
 </head>
