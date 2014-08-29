@@ -22,11 +22,7 @@
 				}
             
         
-            $("#btnEnter").click(function () {
-                Getuserdata();
-                onDeviceReady();
-                window.location.href = 'Profile.html';
-            });
+            
             var online = navigator.onLine;    // Detecting the internet connection
             if (online) {
                 // do your stuff
@@ -34,6 +30,11 @@
                 //alert('You\'re Offline now...');
                 return false;
             }
+        });
+        $("#btnEnter").click(function () {
+            Getuserdata();
+            onDeviceReady();
+            window.location.href = 'Profile.html';
         });
         //function TestInsert() {
         //    var name = 'Rizwan';
@@ -133,7 +134,7 @@
     </script>
     <!--User Profile Data End-->
     <script type="text/javascript">
-        document.addEventListener("deviceready", onDeviceReady, false);
+        //document.addEventListener("deviceready", onDeviceReady, false);
 
         // Cordova is ready
         //
@@ -171,26 +172,29 @@
                     var name = contacts[i].displayName;
                     var mobileNumber = contacts[i].phoneNumbers[j].value;
                     //var userId = 2;
-                    alert(name);
+                    //alert(name);
                    
                    var input = $.Storage.get("Mobile");
                    
                    
-                    $.ajax(
-                    {
-                         type: "POST",
-                         url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
-                         //url: "Vcard.asmx/InsertUserContact",
-                        data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + input + "'}",
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        success: function (response, status) {
-						//alert("added");
-                    },
-                    failure: function (msg) {
-                    alert(msg);
-                    }
-                });
+                   $.ajax(
+                   {
+                       type: "POST",
+                       url: "http://business.2bvision.com/Vcard.asmx/InsertUserContact",
+                       //url: "Vcard.asmx/InsertUserContact",
+                       data: "{'Name': '" + name + "','MobileNumber': '" + mobileNumber + "','UserId': '" + input + "'}",
+                       contentType: "application/json; charset=utf-8",
+                       dataType: "json",
+                       success: function (response, status) {
+                           //alert("added");
+                       },
+
+                       failure: function (msg) {
+                           alert(msg);
+                       }
+                      
+                   });
+                   alert("contact Added");
                 }
             }
         };
