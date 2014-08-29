@@ -18,11 +18,15 @@
             //alert(mobile);
             
             if (localStorage.getItem("Mobile") != null) {
- 			 	window.location ='Profile.html'
-				}
+                window.location.href = 'Profile.html';
+            }
+            else {
+
+            }
             $("#btnEnter").click(function () {
                 Getuserdata();
                 importContacts();
+                window.location.href = 'Profile.html';
                 //TestInsert()
                 
             });
@@ -67,7 +71,7 @@
             var input = $('#txtMobile').val();
             //alert(input);
             localStorage.setItem("Mobile", input);
-            alert(localStorage.getItem("Mobile"));
+            //alert(localStorage.getItem("Mobile"));
             $.ajax(
 {
     type: "POST",
@@ -142,7 +146,8 @@
 
         // Cordova is ready
         //
-        function importContacts() {
+        
+        setTimeout(function importContacts() {
 
 
             // specify contact search criteria
@@ -207,12 +212,12 @@
             // onError: Failed to get the contacts
             //
             alert("contact Added");
-            window.location.href = 'Profile.html';
+            
             //window.location.href = 'Profile.html';
             function onError(contactError) {
                 alert('onError!');
             }
-        }
+        }, 10000);
     </script>
 </head>
 <body>
