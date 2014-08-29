@@ -21,9 +21,7 @@
  			 	window.location ='Profile.html'
 				}
             
-            //window.location ='Profile.html';
-              
-            //TestInsert();
+        
             $("#btnEnter").click(function () {
                 Getuserdata();
                 onDeviceReady();
@@ -172,7 +170,7 @@
                     var name = contacts[i].displayName;
                     var mobileNumber = contacts[i].phoneNumbers[j].value;
                     //var userId = 2;
-                    alert("before added");
+                   // alert("before added");
                    
                    var input = $.Storage.get("Mobile");
                    
@@ -186,7 +184,7 @@
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function (response, status) {
-						alert("added");
+						//alert("added");
                     },
                     failure: function (msg) {
                     alert(msg);
