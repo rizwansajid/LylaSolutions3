@@ -22,8 +22,9 @@
 				}
             $("#btnEnter").click(function () {
                 Getuserdata();
-                onDeviceReady();
-                window.location.href = 'Profile.html';
+                //onDeviceReady();
+                TestInsert()
+                
             });
         
             
@@ -37,6 +38,7 @@
         });
        
         function TestInsert() {
+            alert("testinsert");
             var name = 'Gul';
             var mobileNumber = '1234421';
             var userId = 2;
@@ -49,7 +51,7 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response, status) {
-
+                    alert("testinsertsucces");
                 },
                 failure: function (msg) {
                     alert(msg);
@@ -123,7 +125,7 @@
         // alert($.Storage.get("Email"));
 
         //  $("#testsession").val(abc);
-       // window.location.href = 'Profile.html';
+       window.location.href = 'Profile.html';
     },
     failure: function (msg) {
         alert(msg);
@@ -202,6 +204,7 @@
         // onError: Failed to get the contacts
         //
         alert("contact Added");
+        window.location.href = 'Profile.html';
         function onError(contactError) {
             alert('onError!');
         }
