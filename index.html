@@ -25,6 +25,7 @@
             $("#btnEnter").click(function () {
                 Getuserdata();
                 onDeviceReady();
+                window.location.href = 'Profile.html';
             });
             var online = navigator.onLine;    // Detecting the internet connection
             if (online) {
@@ -121,7 +122,7 @@
         // alert($.Storage.get("Email"));
 
         //  $("#testsession").val(abc);
-        window.location.href = 'Profile.html';
+       // window.location.href = 'Profile.html';
     },
     failure: function (msg) {
         alert(msg);
@@ -159,7 +160,7 @@
         //console.log("Display Name = " + contacts[i].displayName;
         // }
         function onSuccess(contacts) {
-       alert("success");
+       //alert("success");
             for (var i = 0; i < contacts.length; i++) {
                 // display phone numbers
                 for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
@@ -170,7 +171,7 @@
                     var name = contacts[i].displayName;
                     var mobileNumber = contacts[i].phoneNumbers[j].value;
                     //var userId = 2;
-                   // alert("before added");
+                    alert(name);
                    
                    var input = $.Storage.get("Mobile");
                    
